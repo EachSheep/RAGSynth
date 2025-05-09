@@ -1,0 +1,170 @@
+You should rigorously apply methods to rephrase questions, ensuring that both equivalent and partial transformations are performed. The core requirements are:
+
+- **For Equivalent Transformations**: These transformations rephrase the question without altering its inherent meaning. The clues needed to answer the question and the final answer must remain unchanged.
+- **For Partial Transformations**: These transformations alter the original question so that it becomes a sub-question of the new question. After transformation, the original clues should only partially address the new question.
+
+Here are the methods for each type of transformation:
+
+### Equivalent Transformations:
+
+- Near-synonym Replacement
+  - Explanation: Replace certain words in the question with their synonyms or equivalent expressions without changing the fundamental meaning.
+  - Example:
+    - Original Question: How much less was Cook's company's revenue in 2023 compared to 2024?
+    - After Near-synonym Replacement: How much less was Cook's company's revenue in the Year of the Rabbit compared to the Year of the Dragon?
+  
+- Semantic Ambiguity
+  - Explanation: Introduce ambiguity in the question without changing the essential meaning.
+  - Example:
+    - Original Question: How much less was Cook's company's revenue in the Year of the Rabbit compared to the Year of the Dragon?
+    - After Semantic Ambiguity: How does Cook's company's revenue in the Year of the Rabbit compare to the Year of the Dragon?
+  
+- Perspective Shift
+  - Explanation: Pose the question from a different perspective or role, such as from an investor, consumer, or competitor, making the question more complex.
+  - Example:
+    - Original Question: How much has Cook's company's revenue increased compared to last year?
+    - After Perspective Shift: As an investor, how would you evaluate the revenue growth of Cook's company this year?
+  
+- Conditional Addition
+  - Explanation: Add conditions to the question, requiring it to be answered under specific circumstances, thus increasing the reasoning steps.
+  - Example:
+    - Original Question: How much has Cook's company's revenue increased compared to last year?
+    - After Conditional Addition: How much has Cook's company's revenue increased compared to last year if inflation is not considered?
+  
+- Detail Expansion
+  - Explanation: Introduce more details or background information into the question, making it more specific and complex, but the answer is still based on the original facts.
+  - Example:
+    - Original Question: How much has Cook's company's revenue increased compared to last year?
+    - After Detail Expansion: How much has Cook's company's revenue increased compared to last year after launching the new Apple Intelligence feature?
+
+### Partial Transformations
+
+- Temporal Expansion
+  - Explanation: Extend or narrow the time frame to address a broader or more specific period, while ensuring the answer remains based on the original facts.
+  - Example:
+    - Original Question: By how much did the revenue of Cook's company increase from 2023 to 2024?
+    - After Temporal Expansion: What was the annual revenue growth rate of Cook's company from 2022 to 2024?
+  
+- Comparison Addition
+  - Explanation: Introduce a comparison with other entities or time points in the question.
+  - Example:
+    - Original Question: By how much did the revenue of Cook's company increase compared to last year?
+    - After Comparison Addition: By how much did the revenue of Cook's company increase compared to last year, and how did this growth compare to that of its competitors?
+  
+- Metric Segmentation
+  - Explanation: Break down the question into different metrics or dimensions, partially relying on the original facts.
+  - Example:
+    - Original Question: By how much did the revenue of Cook's company increase compared to last year?
+    - After Metric Segmentation: By how much did the revenue of Cook's company increase compared to last year, and how did revenue from phones and computers grow compared to last year?
+  
+- Multi-step Question
+  - Explanation: Break down a question into multiple steps or requirements, including parts that require reasoning or calculation.
+  - Example:
+    - Original Question: How much did the revenue of the company where Cook works increase compared to last year?
+    - After Multi-step Question: How much did the revenue of the company where Cook works increase compared to last year? What does this imply about its annual growth rate?
+  
+- Prediction Requirement
+  - Explanation: Require making a prediction about the future, with existing clues providing only partial basis.
+  - Example:
+    - Original Question: How much did the revenue of the company where Cook works increase compared to last year?
+    - After Prediction Requirement: Based on this year's revenue growth, what is the expected revenue of the company where Cook works for next year?
+  
+- Explanation of Reasons
+  - Explanation: Not only ask for the result but also require explaining the reasons behind the result.
+  - Example:
+    - Original Question: How much did the revenue of the company where Cook works increase compared to last year?
+    - After Explanation of Reasons: How much did the revenue of the company where Cook works increase compared to last year? What are the main reasons for this growth?
+
+------
+Below is an example:
+Given clues:
+1. <source_entity_name>Richard H. Shaw</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>Richard H. Shaw, as the Dean of Undergraduate Admission, oversees the application process and emphasizes the importance of personal growth and resilience in applicants</relationship_desc>
+2. <source_entity_name>Restrictive Early Action Application</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>The Restrictive Early Action Application is one of the application processes for undergraduate admission to Stanford University</relationship_desc>
+3. <source_entity_name>Regular Decision Application</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>The Regular Decision Application is the standard process for undergraduate admission to Stanford University</relationship_desc>
+4. <source_entity_name>Transfer Application</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>The Transfer Application is the process for students who wish to transfer to Stanford University</relationship_desc>
+5. <source_entity_name>Natural Disasters</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>Natural Disasters can affect students' ability to meet application deadlines, leading to flexible submission options and extended grace periods</relationship_desc>
+6. <source_entity_name>Standardized Test Requirement</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>Stanford University will resume requiring standardized test scores for undergraduate admission starting with the Class of 2030</relationship_desc>
+7. <source_entity_name>Test-Optional Policy</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>Stanford University currently has a test-optional policy for the 2023-2024 and 2024-2025 admission cycles, allowing students to apply without submitting SAT or ACT scores</relationship_desc>
+8. <source_entity_name>Holistic Review</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>Stanford University uses a holistic review process to evaluate applicants, considering a wide range of factors beyond just test scores and grades</relationship_desc>
+
+Original Question: How does Stanford University's test policy affect undergraduate admissions for the 2023-2024 and 2024-2025 cycles, and what changes are expected for the Class of 2030?
+Answer: For the 2023-2024 and 2024-2025 cycles, Stanford University's test-optional policy allows students to apply without standardized test scores while using a holistic review process [Clue 7, 8]. Starting with the Class of 2030, standardized test scores will be required again [Clue 6].
+
+++++++
+
+Rephrased Question:
+
+1. <transformed-action>>Equivalent Transformation: Near-synonym Replacement</transformed-action>
+<transformed-explanation>Replace "Stanford University" with "Stanford" and "test policy" with "standardized testing policy."</transformed-explanation>
+<transformed-question>How does Stanford's standardized testing policy affect undergraduate admissions for the 2023-2024 and 2024-2025 cycles, and what changes are expected for the Class of 2030?</transformed-question>
+<transformed-answer>For the 2023-2024 and 2024-2025 cycles, Stanford's test-optional policy allows students to apply without test scores while using a holistic review process [Clue 7, 8]. Starting with the Class of 2030, test scores will be required again [Clue 6].</transformed-answer>
+
+2. <transformed-action>Partial Transformation: Temporal Expansion</transformed-action>
+<transformed-explanation>Extend the time frame to include additional admission cycles beyond the original scope.</transformed-explanation>
+<transformed-question>How does Stanford's testing policy affect undergraduate admissions for the 2023-2024, 2024-2025, 2025-2026 cycles, and what changes are expected for the other years?</transformed-question>
+<transformed-answer>For the 2023-2024 and 2024-2025 cycles, Stanford's test-optional policy allows students to apply without test scores while using a holistic review process [Clue 7, 8]. Starting with the Class of 2030, test scores will be required again [Clue 6]. Information regarding admission cycles beyond these periods is not provided in the given clues.</transformed-answer>
+
+3. <transformed-action>Partial Transformation: Comparison Addition</transformed-action>
+<transformed-explanation>Introduce a comparison with another university's test policy during the same period.</transformed-explanation>
+<transformed-question>How does Stanford's testing policy for the 2023-2024, 2024-2025, 2025-2026 cycles compare to Harvard's policies, and what changes are expected for the other years?</transformed-question>
+<transformed-answer>For the 2023-2024 and 2024-2025 cycles, Stanford's test-optional policy allows students to apply without test scores while using a holistic review process [Clue 7, 8]. Starting with the Class of 2030, test scores will be required again [Clue 6]. The test policy in 2025-2026 recycle is not provided. The test policy during other period or Harvard is not provided in the given clues, making a comparison infeasible based on the available information.</transformed-answer>
+
+4. <transformed-action>Partial Transformation: Metric Segmentation</transformed-action>
+<transformed-explanation>Break down the impact of the test policy by application type, such as Restrictive Early Action, Regular Decision, and Transfer Applications.</transformed-explanation>
+<transformed-question>How does Stanford's testing policy affect undergraduate admissions for the 2023-2024, 2024-2025, and 2025-2026 cycles compare to Harvard across Restrictive Early Action, Regular Decision, and Transfer Applications? What changes are expected for the other years?</transformed-question>
+<transformed-answer> For the 2023-2024 and 2024-2025 cycles, Stanford's test-optional policy allows students to apply without test scores while using a holistic review process [Clue 7, 8]. The test policy in 2025-2026 recycle is not provided. Starting with the Class of 2030, test scores will be required again [Clue 6]. The test policy in 2025-2026 recycle or other periods is not provided. Specific impacts on Restrictive Early Action, Regular Decision, Transfer Applications, and any information about Harvard are not detailed in the given clues.</transformed-answer>
+
+5. <transformed-action>Equivalent Transformation: Perspective Shift</transformed-action>
+<transformed-explanation>Pose the question from the perspective of an admissions counselor assessing policy impacts on applicant evaluation.</transformed-explanation>
+<transformed-question>From an admissions counselor's perspective, how does Stanford's testing policy influence undergraduate admissions for the 2023-2024, 2024-2025, and 2025-2026 cycles compare to Harvard across Restrictive Early Action, Regular Decision, and Transfer Applications? what changes are expected for the other years?</transformed-question>
+<transformed-answer>From an admissions counselor's viewpoint, the test-optional policy for the 2023-2024 and 2024-2025 cycles allows applicants to submit applications without test scores, facilitating a holistic review process [Clue 7, 8]. For the Class of 2030, the reintroduction of test score requirements is planned [Clue 6]. The test policy in 2025-2026 recycle or other periods is not provided. Specific impacts on Restrictive Early Action, Regular Decision, Transfer Applications, and any information about Harvard are not detailed in the given clues.</transformed-answer>
+
+6. <transformed-action>Partial Transformation: Explanation of Reasons</transformed-action>
+<transformed-explanation>Not only ask how the testing policy influences admissions, but also require explaining the reasons behind the influence.</transformed-explanation>
+<transformed-question>From an admissions counselor's perspective, how does Stanford's testing policy influence undergraduate admissions for the 2023-2024, 2024-2025, and 2025-2026 cycles compared to Harvard across Restrictive Early Action, Regular Decision, and Transfer Applications, and what are the reasons for these impacts? What changes are expected for the other years?</transformed-question>
+<transformed-answer>From an admissions counselor's viewpoint, the test-optional policy for the 2023-2024 and 2024-2025 cycles allows applicants to submit applications without test scores, facilitating a holistic review process [Clue 7, 8]. This policy encourages a more comprehensive evaluation of applicants' abilities beyond standardized test performance [Clue 8]. Starting with the Class of 2030, test scores will be required again [Clue 6]. The test policy in 2025-2026 cycle or other periods is not provided. Specific impacts on Restrictive Early Action, Regular Decision, Transfer Applications, and any information about Harvard University are not detailed in the given clues. Thus, I cannot analyse the reason too.</transformed-answer>
+
+++++++
+------
+Follow the format provided in the example strictly:
+Rephrased Question:
+1. <transformed-action>Here is the name of the Transformation (Specify "Equivalent Transformation" or "Partial Transformation")</transformed-action>
+<transformed-explanation>Here is the explanation of the Transformation</transformed-explanation> 
+<transformed-question>Here is the result of the Transformation</transformed-question>
+<transformed-answer>Here is the answer to the transformed question. In your answer, you should clearly indicate which sentence relies on which specific clue. If a sentence does not have a corresponding clue, do not include any annotations.</transformed-answer>
+2. ...
+
+When rephrasing question, do not use any pronouns. Avoid pronouns, including but not limited to I, you, he/she/it, we, you (plural), they/them, this, that, these, those, who, each, everything, all, some, any, whoever, or certain.
+
+1. The core requirement is that, after transformation, equivalent transformations must preserve the original meaning, and partial transformations must alter the meaning so that the original question becomes a sub-question of the new one.
+2. Additionally, the key information in the question must not be lost.
+3. The next transformation must be based on the previous transformation.
+4. You may perform a maximum of 6 transformations.
+5. Once a transformation is made, you cannot revert it.
+6. Your transformed answer should include references like [Clue 1], if multiple clues are used, format the references as [Clue xx, xx, ...], that is separated numbers starting with "Clue" within square brackets indicate citations from various clues. For more than three consecutive citations, use a format like [Clue xx, xx1-xx2, xx], where xx1-xx2 indicates a continuous range of citations from xx1 to xx2.
+7. The core requirement is that, your transformations of the question should be equivalent or partial as specified. For equivalent transformations, the meaning remains unchanged. For partial transformations, the original question becomes a sub-question of the new one.
+8. Your transformed answer should reflect whether the transformation was equivalent or partial by appropriately addressing the new question while partially or fully relying on the existing clues.
+9. In partial transformations, incorporate previous sub-questions randomly—at the beginning, middle, or end of the new question.
+10. The next transformation must be based on the previous transformation.
+
+------
+[[CONTEXT]]
+
+++++++
+Transformations: 

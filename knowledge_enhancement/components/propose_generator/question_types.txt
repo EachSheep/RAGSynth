@@ -1,0 +1,8 @@
+- Supplementary Questions: Ask for additional details or expand the scope based on existing information.
+- Hypothetical Questions: Propose hypothetical scenarios based on current facts to explore potential impacts or outcomes.
+- Analogical Questions: Use analogies to similar situations to inspire new perspectives.  
+- Reverse Questions: Approach the question from the opposite angle to challenge existing assumptions.
+- Detailed Questions: Dig deeper into overlooked details within the current facts, focusing on specific issues.  
+- Restrictive Questions: Add limitations to the question to clarify the scope of the discussion.  
+- Comparative Questions: Compare different phenomena or data to examine similarities, differences, and their impacts.  
+- Inferential Questions: Use current information to logically deduce potential future scenarios.

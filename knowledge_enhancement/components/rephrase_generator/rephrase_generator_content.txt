@@ -1,0 +1,82 @@
+You should rigorously employ methods to rephrase questions without altering their inherent meaning. The core requirement is that, after transformation, the clues needed to answer the question and the final answer itself must remain unchanged. Here are some methods:
+
+- Near-synonym Replacement:
+  - Explanation: Replace certain words in the question with their synonyms or equivalent expressions, without changing the fundamental meaning of the question.
+  - Example:
+    - Original Question: How much less was Cook's company's revenue in 2023 compared to 2024?
+    - After Near-synonym Replacement: How much less was Cook's company's revenue in the Year of the Rabbit compared to the Year of the Dragon?
+- Semantic Ambiguity:
+  - Explanation: Introduce ambiguity in the question without changing the essential meaning.
+  - Example:
+    - Original Question: How much less was Cook's company's revenue in the Year of the Rabbit compared to the Year of the Dragon?
+    - After Semantic Ambiguity: How does Cook's company's revenue in the Year of the Rabbit compare to the Year of the Dragon?
+- Perspective Shift:
+  - Explanation: Pose the question from a different perspective or role, such as from an investor, consumer, or competitor, making the question more complex.
+  - Example:
+    - Original Question: How much has Cook's company's revenue increased compared to last year?
+    - After Perspective Shift: As an investor, how would you evaluate the revenue growth of Cook's company this year?
+- Conditional Addition:
+  - Explanation: Add conditions to the question, requiring it to be answered under specific circumstances, thus increasing the reasoning steps.
+  - Example:
+    - Original Question: How much has Cook's company's revenue increased compared to last year?
+    - After Conditional Addition: How much has Cook's company's revenue increased compared to last year if inflation is not considered?
+- Detail Expansion:
+  - Explanation: Introduce more details or background information into the question, making it more specific and complex, but the answer is still based on the original facts.
+  - Example:
+    - Original Question: How much has Cook's company's revenue increased compared to last year?
+    - After Detail Expansion: How much has Cook's company's revenue increased compared to last year after launching the new Apple Intelligence feature?
+
+------
+Below is an example:
+
+Original Question: How much has Apple's revenue increased its revenue compared to last year?
+Answer: Apple's revenue increased by 6% year-over-year, reaching $94.9 billion [Doc https_www.trendforce.com_news_2024_11_01_news-apple-reports-6, Sen 2, 5].
+
+++++++
+Transformations:
+Rephrased Question:
+1. <transformed-action>Near-synonym Replacement</transformed-action>
+<transformed-explanation>Replace "Apple" with "the company led by Tim Cook"</transformed-explanation> 
+<transformed-question>How much has the company led by Tim Cook grown its revenue compared to last year?</transformed-question>
+<transformed-answer>The company led by Tim Cook experienced a 6% growth in revenue year-over-year, reaching $94.9 billion [Doc https_www.trendforce.com_news_2024_11_01_news-apple-reports-6, Sen 2, 5].</transformed-answer>
+
+2. <transformed-action>Semantic Ambiguity</transformed-action>
+<transformed-explanation>Introduce ambiguity by asking about revenue change without specifying the direction explicitly</transformed-explanation> 
+<transformed-question>What is the change in revenue for the company led by Tim Cook compared to the previous year?</transformed-question>
+<transformed-answer>The company led by Tim Cook saw its revenue rise by 6% year-over-year, totaling $94.9 billion [Doc https_www.trendforce.com_news_2024_11_01_news-apple-reports-6, Sen 2, 5].</transformed-answer>
+
+3. <transformed-action>Perspective Shift</transformed-action>
+<transformed-explanation>Pose the question from the perspective of a financial analyst</transformed-explanation> 
+<transformed-question>As a financial analyst, do you know the revenue change of the company led by Tim Cook compared to the previous fiscal year?</transformed-question>
+<transformed-answer>From a financial analyst's perspective, the company led by Tim Cook demonstrated a 6% increase in revenue year-over-year, amounting to $94.9 billion [Doc https_www.trendforce.com_news_2024_11_01_news-apple-reports-6, Sen 2, 5].</transformed-answer>
+
+4. <transformed-action>Conditional Addition</transformed-action>
+<transformed-explanation>Add a condition related to stable market conditions while maintaining the financial analyst perspective</transformed-explanation> 
+<transformed-question>As a financial analyst, do you know the revenue change of the company led by Tim Cook compared to the previous fiscal year, assuming stable market conditions?</transformed-question>
+<transformed-answer>Assuming stable market conditions, from a financial analyst's perspective, the company led by Tim Cook achieved a 6% revenue growth year-over-year, reaching $94.9 billion [Doc https_www.trendforce.com_news_2024_11_01_news-apple-reports-6, Sen 2, 5].</transformed-answer>
+
+++++++
+------
+Follow the format provided in the example strictly:
+Rephrased Question:
+1. <transformed-action>Here is the name of the Transformation</transformed-action>
+<transformed-explanation>Here is the explanation of the Transformation</transformed-explanation> 
+<transformed-question>Here is the result of the Transformation</transformed-question>
+<transformed-answer>Here is the answer of transformed question</transformed-answer>
+2. ...
+
+When rephrasing question, do not use any pronouns. Avoid pronouns, including but not limited to I, you, he/she/it, we, you (plural), they/them, this, that, these, those, who, each, everything, all, some, any, whoever, or certain.
+
+1. The core requirement is that, after transformation, the clues needed to answer the question and the final answer itself must remain unchanged.
+2. Additionally, the key information in the question must not be lost.
+3. The next transformation must be based on the previous transformation. For example, transformation 4 is based on the transformation result "As a financial analyst, do you know the revenue change of the company led by Tim Cook compared to the previous fiscal year?".
+4. You may perform a maximum of 4 transformations.
+5. Once a transformation is made, you cannot revert it.
+6. Your transformed answer should include references the same as original answer like [Doc https_www.trendforce.com_news_2024_11_01_news-apple-reports-6, Sen 2, 5].
+7. The core requirement is that, your transformations of the question should be equivalent. For instance, "Apple Inc" and "the company currently led by Cook" are equivalent, whereas "the institution of higher learning in Palo Alto" and "Stanford" are not equivalent, because "the institution of higher learning in Palo Alto" includes not only "Stanford University" but also "Palo Alto University".
+------
+
+[[CONTEXT]]
+
+++++++
+Transformations:

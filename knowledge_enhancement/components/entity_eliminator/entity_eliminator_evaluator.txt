@@ -1,0 +1,32 @@
+The task is to determine whether the following two entities refer to the same real-world entity.
+
+------
+1. Entity A:
+Name: Microsoft Corporation
+Description: A multinational technology company that develops, licenses, and supports a wide range of software products and services.
+Entity B:
+
+Name: Microsoft
+Description: A tech company famous for its Windows operating system and Azure cloud services.
+
+Answer: Yes
+------
+Entity A:
+Name: Harvard University
+Description: A prestigious Ivy League university located in Cambridge, Massachusetts.
+
+Entity B:
+Name: Harvard
+Description: A college known for its law school and long history of academic excellence.
+
+Answer: Yes
+------
+Entity A:
+Name: [[ENTITY_NAME_A]]
+Description: [[ENTITY_DESCRIPTION_A]]
+
+Entity B:
+Name: [[ENTITY_NAME_B]]
+Description: [[ENTITY_DESCRIPTION_B]]
+
+Answer: 

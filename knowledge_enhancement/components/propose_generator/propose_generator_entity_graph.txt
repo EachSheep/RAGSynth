@@ -1,0 +1,80 @@
+Your task is to propose questions based on the objective relationships to derive "new" questions.
+------
+Below is an example:
+Objective Clues::
+1. <source_entity_name>Richard H. Shaw</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>Richard H. Shaw, as the Dean of Undergraduate Admission, oversees the application process and emphasizes the importance of personal growth and resilience in applicants</relationship_desc>
+2. <source_entity_name>Restrictive Early Action Application</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>The Restrictive Early Action Application is one of the application processes for undergraduate admission to Stanford University</relationship_desc>
+3. <source_entity_name>Regular Decision Application</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>The Regular Decision Application is the standard process for undergraduate admission to Stanford University</relationship_desc>
+4. <source_entity_name>Transfer Application</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>The Transfer Application is the process for students who wish to transfer to Stanford University</relationship_desc>
+5. <source_entity_name>Natural Disasters</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>Natural Disasters can affect students' ability to meet application deadlines, leading to flexible submission options and extended grace periods</relationship_desc>
+6. <source_entity_name>Standardized Test Requirement</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>Stanford University will resume requiring standardized test scores for undergraduate admission starting with the Class of 2030</relationship_desc>
+7. <source_entity_name>Test-Optional Policy</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>Stanford University currently has a test-optional policy for the 2023-2024 and 2024-2025 admission cycles, allowing students to apply without submitting SAT or ACT scores</relationship_desc>
+8. <source_entity_name>Holistic Review</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>Stanford University uses a holistic review process to evaluate applicants, considering a wide range of factors beyond just test scores and grades</relationship_desc>
+
+++++++
+New Questions:
+1. <1-questions>
+  <question>How does Stanford University accommodate undergraduate applicants affected by natural disasters?</question>
+  <objective-relationship-id>5,8</objective-relationship-id>
+  <reasoning>Stanford University accommodates applicants affected by natural disasters by offering flexible submission options and extended grace periods. Additionally, the university employs a holistic review process that considers the applicants' circumstances comprehensively.</reasoning>
+  <answer>Stanford University accommodates undergraduate applicants affected by natural disasters by providing flexible submission options, extended grace periods, and evaluating their circumstances through a holistic review process [Clue 5, 8].</answer>
+</1-questions>
+2. <2-questions>
+  <question>What application processes does Richard H. Shaw oversee as the Dean of Undergraduate Admission at Stanford University?</question>
+  <objective-relationship-id>1,2,3</objective-relationship-id>
+  <reasoning>As the Dean of Undergraduate Admission, Richard H. Shaw oversees the overall application process. This includes managing specific application processes such as the Restrictive Early Action Application and the Regular Decision Application.</reasoning>
+  <answer>Richard H. Shaw oversees the Restrictive Early Action Application and the Regular Decision Application processes as the Dean of Undergraduate Admission at Stanford University [Clue 1, 2, 3].</answer>
+</2-questions>
+3. <3-questions>
+  <question>How does Stanford University's test policy affect undergraduate admissions for the 2023-2024 and 2024-2025 cycles, and what changes are expected for the Class of 2030?</question>
+  <objective-relationship-id>6,7,8</objective-relationship-id>
+  <reasoning>Stanford University currently has a test-optional policy for the 2023-2024 and 2024-2025 admission cycles, allowing students to apply without submitting SAT or ACT scores. However, starting with the Class of 2030, the university will resume requiring standardized test scores. Throughout this period, Stanford utilizes a holistic review process that evaluates applicants based on a wide range of factors beyond just test scores and grades.</reasoning>
+  <answer>For the 2023-2024 and 2024-2025 cycles, Stanford University's test-optional policy allows students to apply without standardized test scores while using a holistic review process [Clue 7, 8]. Starting with the Class of 2030, standardized test scores will be required again [Clue 6].</answer>
+</3-questions>
+++++++
+------
+Follow the format provided in the example strictly:
+New Questions:
+1. <1-questions>
+  <question>CONTENT of objective question</question>
+  <objective-relationship-id>IDs of objective relationships separated by comma</objective-relationship-id>
+  <reasoning>How to deduce the answer to the problem. You should clearly articulate which relationships you have used, what the content of those relationships is, and how you derived the answer based on those relationships.</reasoning>
+  <answer>The answer derived through reasoning</answer>
+</1-questions>
+2. <2-questions>
+...
+</2-questions>
+3. <3-questions>
+...
+<3-questions>
+
+When asking questions, do not use any pronouns. Avoid pronouns, including but not limited to I, you, he/she/it, we, you (plural), they/them, this, that, these, those, who, each, everything, all, some, any, whoever, or certain.
+
+1. The question should be "New".
+2. You should focus on asking clear, answerable questions related to the entity [[ENTITY_NAME]].
+3. Your questions should involve at least two relationships. If you cannot formulate a reasonable question, please do not ask anything and simply output "nothing".
+4. The questions you provide must be answerable using the facts I have given you.
+5. Your answer should strictly adhere to the provided clues; please refrain from making arbitrary associations, expansions, or adding extra facts.
+4. Your answer should include references like [Clue 1] to indicate that a statement is based on a specific clue, if multiple clues are used, format the output as [Clue xx, xx, ...], that is separated numbers starting with "Clue" within square brackets indicate citations from various clues. For more than three consecutive citations, use a format like [Clue xx, xx1-xx2, xx], where xx1-xx2 indicates a continuous range of citations from xx1 to xx2.
+------
+
+Context:
+[[CONTEXT]]
+
+------

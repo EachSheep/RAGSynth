@@ -1,0 +1,65 @@
+Your task is to propose questions based on the objective facts to derive "new" questions.
+
+------
+Below is an example:
+Objective Facts:
+1. <detailed-desc>Apple's revenue increased by 6% year-over-year, reaching $94.9 billion.</detailed-desc>
+2. <detailed-desc>Apple's profit dropped by 35% compared to the same period last year.</detailed-desc>
+3. <detailed-desc>Apple's revenue slightly exceeded analysts' expectations.</detailed-desc>
+4. <detailed-desc>Tim Cook stated that the Apple Intelligence update has been well-received by consumers.</detailed-desc>
+5. <detailed-desc>The adoption rate of iOS 18.1 is double that of iOS 17.1, according to Tim Cook.</detailed-desc>
+6. <detailed-desc>Following the earnings release, Apple shares (AAPL) dropped by about 1% in after-hours trading.</detailed-desc>
+7. <detailed-desc>Apple introduced new Apple Intelligence features, including writing tools, voice recording, transcription, and call summary, to the iPhone 16 and iPhone 15 Pro earlier in the week.</detailed-desc>
+8. <detailed-desc>Some iPhone 16 users only recently gained access to Apple Intelligence features, which were delayed.</detailed-desc>
+9. <detailed-desc>Apple plans to release additional Apple Intelligence features with iOS 18.2 in December.</detailed-desc>
+10. <detailed-desc>Ahead of Apple's earnings release, Wall Street investors monitored the initial performance of the iPhone 16 and Apple's fourth-quarter sales guidance.</detailed-desc>
+
+++++++
+New Questions:
+1. <1-questions>
+  <question>What was the year-over-year percentage increase in Apple's revenue?</question>
+  <objective-facts>1</objective-facts>
+  <reasoning>The answer can be deduced from the fact that Apple's revenue increased by 6% year-over-year.</reasoning>
+  <answer>6% [Clue 1]</answer>
+</1-questions>
+2. <2-questions>
+  <question>What is the adoption rate comparison between iOS 18.1 and iOS 17.1?</question>
+  <objective-facts>5</objective-facts>
+  <reasoning>The answer can be deduced from the fact that the adoption rate of iOS 18.1 is double that of iOS 17.1, according to Tim Cook. </reasoning>
+  <answer>The adoption rate of iOS 18.1 is double that of iOS 17.1 [Clue 5].</answer>
+</2-questions>
+3. <3-questions>
+  <question>What additional Apple Intelligence features are planned for release with iOS 18.2?</question>
+  <objective-facts>9</objective-facts>
+  <reasoning>The answer can be deduced from the fact that Apple plans to release additional Apple Intelligence features with iOS 18.2 in December.</reasoning>
+  <answer>Additional Apple Intelligence features are planned for release with iOS 18.2 in December [Clue 9].</answer>
+</3-questions>
+++++++
+------
+Follow the format provided in the example strictly:
+New Questions:
+1. <1-questions>
+  <question>CONTENT of objective question</question>
+  <objective-facts>IDs of object facts separated by comma</objective-facts>
+  <reasoning>How to deduce the answer based on facts. You should clearly articulate which facts you have used, what the content of those facts is, and how you derived the answer based on those facts.</reasoning>
+  <answer>The answer of the question</answer>
+</1-questions>
+2. <2-questions>
+...
+</2-questions>
+3. <3-questions>
+...
+</3-questions>
+
+When asking questions, do not use any pronouns. Avoid pronouns, including but not limited to I, you, he/she/it, we, you (plural), they/them, this, that, these, those, who, each, everything, all, some, any, whoever, or certain.
+
+1. The questions you provide must be answerable using the facts I have given you.
+2. Your answer should strictly adhere to the provided clues; please refrain from making arbitrary associations, expansions, or adding extra facts.
+3. You can generate three questions at most.
+4. Your answer should include references like [Clue 1] to indicate that a statement is based on a specific clue, if multiple clues are used, format the output as [Clue xx, xx, ...], that is separated numbers starting with "Clue" within square brackets indicate citations from various clues. For more than three consecutive citations, use a format like [Clue xx, xx1-xx2, xx], where xx1-xx2 indicates a continuous range of citations from xx1 to xx2.
+------
+
+Context:
+[[CONTEXT]]
+
+------

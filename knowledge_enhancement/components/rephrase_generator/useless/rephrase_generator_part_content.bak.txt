@@ -1,0 +1,99 @@
+You should rigorously apply methods to rephrase questions, ensuring that the original meaning is altered so that existing clues can only partially answer the new question. The core requirement is that, after transformation, the original clues should only partially address the new question. Here are some methods:
+
+- Temporal Expansion:
+  - Explanation: Extending or narrowing the time frame to address a broader or more specific period, while ensuring the answer remains based on the original facts.
+  - Example:
+    - Original Question: By how much did the revenue of Cook's company increase from 2023 to 2024?
+    - After Temporal Expansion: What was the annual revenue growth rate of Cook's company from 2022 to 2024?
+
+- Comparison Addition:
+  - Explanation: Introducing a comparison with other entities or time points in the question.
+  - Example:
+    - Original Question: By how much did the revenue of Cook's company increase compared to last year?
+    - After Comparison Addition: By how much did the revenue of Cook's company increase compared to last year, and how did this growth compare to that of its competitors?
+
+- Metric Segmentation:
+  - Explanation: Breaking down the question into different metrics or dimensions, partially relying on the original facts.
+  - Example:
+    - Original Question: By how much did the revenue of Cook's company increase compared to last year?
+    - After Metric Segmentation: By how much did the revenue of Cook's company increase compared to last year, and how did revenue from phones and computers grow compared to last year?
+
+- Multi-step Question
+  - Explanation: Breaks down a question into multiple steps or requirements, including parts that require reasoning or calculation.
+  - Example:
+    - Original Question: How much did the revenue of the company where Cook works increase compared to last year?
+    - After Multi-step Question: How much did the revenue of the company where Cook works increase compared to last year? What does this imply about its annual growth rate?
+
+- Prediction Requirement
+  - Explanation: Requires making a prediction about the future, with existing clues providing only partial basis.
+  - Example:
+    - Original Question: How much did the revenue of the company where Cook works increase compared to last year?
+    - After Prediction Requirement: Based on this year's revenue growth, what is the expected revenue of the company where Cook works for next year?
+
+- Explanation of Reasons
+  - Explanation: Not only asks for the result but also requires explaining the reasons behind the result.
+  - Example:
+    - Original Question: How much did the revenue of the company where Cook works increase compared to last year?
+    - After xplanation of Reasons: How much did the revenue of the company where Cook works increase compared to last year? What are the main reasons for this growth?
+
+------
+Below is an example:
+Given clues:
+1. <detailed-desc>Apple's revenue increased by 6% year-over-year, reaching $94.9 billion.</detailed-desc>
+2. <detailed-desc>Apple's profit dropped by 35% compared to the same period last year.</detailed-desc>
+3. <detailed-desc>Apple's revenue slightly exceeded analysts' expectations.</detailed-desc>
+4. <detailed-desc>Tim Cook stated that the Apple Intelligence update has been well-received by consumers.</detailed-desc>
+5. <detailed-desc>The adoption rate of iOS 18.1 is double that of iOS 17.1, according to Tim Cook.</detailed-desc>
+6. <detailed-desc>Following the earnings release, Apple shares (AAPL) dropped by about 1% in after-hours trading.</detailed-desc>
+7. <detailed-desc>Apple introduced new Apple Intelligence features, including writing tools, voice recording, transcription, and call summary, to the iPhone 16 and iPhone 15 Pro earlier in the week.</detailed-desc>
+8. <detailed-desc>Some iPhone 16 users only recently gained access to Apple Intelligence features, which were delayed.</detailed-desc>
+9. <detailed-desc>Apple plans to release additional Apple Intelligence features with iOS 18.2 in December.</detailed-desc>
+10. <detailed-desc>Ahead of Apple's earnings release, Wall Street investors monitored the initial performance of the iPhone 16 and Apple's fourth-quarter sales guidance.</detailed-desc>
+
+Original Question: How much has Apple's revenue increased its revenue compared to last year?
+Answer: Apple's revenue increased by 6% year-over-year, reaching $94.9 billion.
+
+++++++
+Transformations:
+1. <transformed-action>Temporal Expansion</transformed-action>
+<transformed-explanation>Extend the time frame to inquire about revenue growth over multiple years.</transformed-explanation>
+<transformed-question>What has been the revenue growth of Apple over the past three years compared to each preceding year?</transformed-question>
+<transformed-answer>Apple's revenue increased by 6% year-over-year, reaching $94.9 billion [Clue 1]. I didn't get any information about the revenue growth in the previous two years, so a complete analysis over the past three years cannot be conducted based on the given clues.</transformed-answer>
+
+2. <transformed-action>Comparison Addition</transformed-action>
+<transformed-explanation>Introduce a comparison with the revenue growth of key competitors during the same period.</transformed-explanation>
+<transformed-question>What has been the revenue growth of Apple over the past three years compared to each preceding year, and how does this growth compare to that of its main competitors?</transformed-question>
+<transformed-answer>Apple's revenue increased by 6% year-over-year, reaching $94.9 billion [Clue 1]. However, I didn't get any information about the revenue in the previous two years or the growth of Apple's main competitors, so a comparison cannot be made based on the available clues.</transformed-answer>
+
+3. <transformed-action>Metric Segmentation</transformed-action>
+<transformed-explanation>Break down the revenue growth by specific product categories, such as hardware and services.</transformed-explanation>
+<transformed-question>How does the revenue growth of Apple's overall revenue, along with hardware and services divisions over the past three years compare to each preceding year, and how does this growth compare to that of its main competitors?</transformed-question>
+<transformed-answer>Apple's revenue increased by 6% year-over-year, reaching $94.9 billion [Clue 1]. However, I don't have specific data on the revenue growth of Apple's hardware and services divisions over the past three years, and I don't know anything about its competitors, so a detailed breakdown cannot be provided based on the given clues.</transformed-answer>
+
+++++++
+------
+Follow the format provided in the example strictly:
+Rephrased Question:
+1. <transformed-action>Here is the name of the Transformation</transformed-action>
+<transformed-explanation>Here is the explanation of the Transformation</transformed-explanation> 
+<transformed-question>Here is the result of the Transformation</transformed-question>
+<transformed-answer>Here is the answer of the question obtained after transformation. In your answer, you should clearly indicate which sentence relies on which specific clue. If a sentence does not have a corresponding clue, do not include any annotations.</transformed-answer>
+2. ...
+
+When rephrasing question, do not use any pronouns. Avoid pronouns, including but not limited to I, you, he/she/it, we, you (plural), they/them, this, that, these, those, who, each, everything, all, some, any, whoever, or certain.
+
+1. The core requirement is that, after transformation, the original clues should only partially address the new question. 
+2. Additionally, the key information in the question must not be lost.
+3. The next transformation must be based on the previous transformation. For example, transformation 3 is based on the transformation result "What has been the revenue growth of Apple over the past three years compared to each preceding year, and how does this growth compare to that of its main competitors?".
+4. You may perform a maximum of 3 transformations.
+5. Once a transformation is made, you cannot revert it.
+6. Your question should not be one that can be fully answered based on the given clues.
+7. You must answer part of the questions based on the available clues. For example, in response to the question, "How does the revenue growth of Apple's overall revenue, along with hardware and services divisions over the past three years compare to each preceding year, and how does this growth compare to that of its main competitors?" even if you do not know the "revenue growth in the past three years," the "revenue growth of Apple's hardware and services division" and "Apple's revenue in the previous two years", you do know that "Apple's revenue increased by 6% in the most recent year, reaching $94.9 billion [Clue 1]." Therefore, you should first respond with that information and then tell the user that you don't know the remaining answer.
+8. Your transformed answer should include references like [Clue 1], if multiple clues are used, format the references as [Clue xx, xx, ...], that is separated numbers starting with "Clue" within square brackets indicate citations from various clues. For more than three consecutive citations, use a format like [Clue xx, xx1-xx2, xx], where xx1-xx2 indicates a continuous range of citations from xx1 to xx2.
+9. The core requirement is that, after transformation, the original clues should only partially address the new question.
+------
+
+[[CONTEXT]]
+
+++++++
+Transformations:

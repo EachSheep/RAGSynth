@@ -1,0 +1,62 @@
+I will provide you with some clues and a series of questions generated based on some of these clues, along with their corresponding answers. Your task is to rearrange the sentence of each question. The key requirement is that after transformation, the clues needed to answer the questions and the final answers must remain unchanged.
+------
+Below is an example:
+Given clues:
+1. <detailed-desc>Apple's revenue increased by 6% year-over-year, reaching $94.9 billion.</detailed-desc>
+2. <detailed-desc>Apple's profit dropped by 35% compared to the same period last year.</detailed-desc>
+3. <detailed-desc>Apple's revenue slightly exceeded analysts' expectations.</detailed-desc>
+4. <detailed-desc>Tim Cook stated that the Apple Intelligence update has been well-received by consumers.</detailed-desc>
+5. <detailed-desc>The adoption rate of iOS 18.1 is double that of iOS 17.1, according to Tim Cook.</detailed-desc>
+6. <detailed-desc>Following the earnings release, Apple shares (AAPL) dropped by about 1% in after-hours trading.</detailed-desc>
+7. <detailed-desc>Apple introduced new Apple Intelligence features, including writing tools, voice recording, transcription, and call summary, to the iPhone 16 and iPhone 15 Pro earlier in the week.</detailed-desc>
+8. <detailed-desc>Some iPhone 16 users only recently gained access to Apple Intelligence features, which were delayed.</detailed-desc>
+9. <detailed-desc>Apple plans to release additional Apple Intelligence features with iOS 18.2 in December.</detailed-desc>
+10. <detailed-desc>Ahead of Apple's earnings release, Wall Street investors monitored the initial performance of the iPhone 16 and Apple's fourth-quarter sales guidance.</detailed-desc>
+
+Questions and Answers:
+<question-1>What has been the revenue growth of Apple over the past three years compared to each preceding year?</question-1>
+<answer-1>Apple's revenue increased by 6% year-over-year, reaching $94.9 billion [Clue 1]. I didn't get any information about the revenue growth in the previous two years, so a complete analysis over the past three years cannot be conducted based on the given clues.</answer-1>
+<question-2>What has been the revenue growth of Apple over the past three years compared to each preceding year, and how does this growth compare to that of its main competitors?</question-2>
+<answer-2>Apple's revenue increased by 6% year-over-year, reaching $94.9 billion [Clue 1]. However, I didn't get any information about the revenue in the previous two years or the growth of Apple's main competitors, so a comparison cannot be made based on the available clues.</answer-2>
+<question-3>How does the revenue growth of Apple's overall revenue, along with hardware and services divisions over the past three years compare to each preceding year, and how does this growth compare to that of its main competitors?</question-3>
+<answer-3>Apple's revenue increased by 6% year-over-year, reaching $94.9 billion [Clue 1]. However, I don't have specific data on the revenue growth of Apple's hardware and services divisions over the past three years, and I don't know anything about its competitors, so a detailed breakdown cannot be provided based on the given clues.</answer-3>
+
+++++++
+Transformations:
+<question-1>
+  <transformed-question>How has Apple’s revenue grown each year over the last three years compared to the previous years?</transformed-question>
+  <same-meaning-with-origin>True</same-meaning-with-origin>
+</question-1>
+<question-2>
+  <transformed-question>How has Apple’s revenue grown each year over the past three years compared to prior years, and how does this growth measure against that of main competitors?</transformed-question>
+  <same-meaning-with-origin>True</same-meaning-with-origin>
+</question-2>
+<question-3>
+  <transformed-question>In what way has the revenue growth of Apple’s overall revenue, including hardware and services divisions, changed each year over the past three years compared to previous years, and how does this growth compare to that of main competitors?</transformed-question>
+  <same-meaning-with-origin>True</same-meaning-with-origin>
+</question-3>
+
+++++++
+------
+Follow the format provided in the example strictly:
+Transformed Question:
+<question-1>
+  <transformed-question>Here is the transformed question for question-1</transformed-question>
+  <same-meaning-with-origin>After transformation, whether the clues needed to answer the questions and the final answers must remain unchanged? True or False?</same-meaning-with-origin>
+</question-1>
+<question-2>
+  <transformed-question>...</transformed-question>
+  <same-meaning-with-origin>...</same-meaning-with-origin>
+</question-2>
+...
+
+When transform question, do not use any pronouns. Avoid pronouns, including but not limited to I, you, he/she/it, we, you (plural), they/them, this, that, these, those, who, each, everything, all, some, any, whoever, or certain.
+
+The key requirement is that after transformation, the clues needed to answer the questions and the final answers must remain unchanged.
+If you believe transforming this question will change the answer, please do not make any changes and simply restate the original question.
+------
+
+[[CONTEXT]]
+
+++++++
+Transformations:

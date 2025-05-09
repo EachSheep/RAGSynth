@@ -1,0 +1,109 @@
+You should rigorously employ methods to rephrase questions without altering their inherent meaning. The core requirement is that, after transformation, the clues needed to answer the question and the final answer itself must remain unchanged. Here are some methods:
+
+- Near-synonym Replacement:
+  - Explanation: Replace certain words in the question with their synonyms or equivalent expressions, without changing the fundamental meaning of the question.
+  - Example:
+    - Original Question: How much less was Cook's company's revenue in 2023 compared to 2024?
+    - After Near-synonym Replacement: How much less was Cook's company's revenue in the Year of the Rabbit compared to the Year of the Dragon?
+- Semantic Ambiguity:
+  - Explanation: Introduce ambiguity in the question without changing the essential meaning.
+  - Example:
+    - Original Question: How much less was Cook's company's revenue in the Year of the Rabbit compared to the Year of the Dragon?
+    - After Semantic Ambiguity: How does Cook's company's revenue in the Year of the Rabbit compare to the Year of the Dragon?
+- Perspective Shift:
+  - Explanation: Pose the question from a different perspective or role, such as from an investor, consumer, or competitor, making the question more complex.
+  - Example:
+    - Original Question: How much has Cook's company's revenue increased compared to last year?
+    - After Perspective Shift: As an investor, how would you evaluate the revenue growth of Cook's company this year?
+- Conditional Addition:
+  - Explanation: Add conditions to the question, requiring it to be answered under specific circumstances, thus increasing the reasoning steps.
+  - Example:
+    - Original Question: How much has Cook's company's revenue increased compared to last year?
+    - After Conditional Addition: How much has Cook's company's revenue increased compared to last year if inflation is not considered?
+- Detail Expansion:
+  - Explanation: Introduce more details or background information into the question, making it more specific and complex, but the answer is still based on the original facts.
+  - Example:
+    - Original Question: How much has Cook's company's revenue increased compared to last year?
+    - After Detail Expansion: How much has Cook's company's revenue increased compared to last year after launching the new Apple Intelligence feature?
+
+------
+Below is an example:
+Given clues:
+1. <source_entity_name>Richard H. Shaw</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>Richard H. Shaw, as the Dean of Undergraduate Admission, oversees the application process and emphasizes the importance of personal growth and resilience in applicants</relationship_desc>
+2. <source_entity_name>Restrictive Early Action Application</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>The Restrictive Early Action Application is one of the application processes for undergraduate admission to Stanford University</relationship_desc>
+3. <source_entity_name>Regular Decision Application</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>The Regular Decision Application is the standard process for undergraduate admission to Stanford University</relationship_desc>
+4. <source_entity_name>Transfer Application</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>The Transfer Application is the process for students who wish to transfer to Stanford University</relationship_desc>
+5. <source_entity_name>Natural Disasters</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>Natural Disasters can affect students' ability to meet application deadlines, leading to flexible submission options and extended grace periods</relationship_desc>
+6. <source_entity_name>Standardized Test Requirement</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>Stanford University will resume requiring standardized test scores for undergraduate admission starting with the Class of 2030</relationship_desc>
+7. <source_entity_name>Test-Optional Policy</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>Stanford University currently has a test-optional policy for the 2023-2024 and 2024-2025 admission cycles, allowing students to apply without submitting SAT or ACT scores</relationship_desc>
+8. <source_entity_name>Holistic Review</source_entity_name>
+<target_entity_name>Undergraduate Admission</target_entity_name>
+<relationship_desc>Stanford University uses a holistic review process to evaluate applicants, considering a wide range of factors beyond just test scores and grades</relationship_desc>
+
+Original Question: How does Stanford University's test policy affect undergraduate admissions for the 2023-2024 and 2024-2025 cycles, and what changes are expected for the Class of 2030?
+Answer: For the 2023-2024 and 2024-2025 cycles, Stanford University's test-optional policy allows students to apply without standardized test scores while using a holistic review process [Clue 7, 8]. Starting with the Class of 2030, standardized test scores will be required again [Clue 6].
+
+++++++
+Transformations:
++++++
+Transformations:
+Rephrased Questions and Answers:
+
+1. <transformed-action>Synonym Replacement</transformed-action>
+<transformed-explanation>Replace "affect" with "impact", "Stanford University" with "Stanford"</transformed-explanation>  
+<transformed-question>How does Stanford 's test policy impact undergraduate admissions for the 2023-2024 and 2024-2025 academic years, and what changes are expected for the Class of 2030?</transformed-question>  
+<transformed-answer>For the 2023-2024 and 2024-2025 academic years, Stanford 's test-optional policy allows students to apply without standardized test scores, utilizing a holistic review process [Clue 7, 8]. Starting with the Class of 2030, submitting standardized test scores will be required again [Clue 6].</transformed-answer>
+
+2. <transformed-action>Semantic Ambiguity</transformed-action>
+<transformed-explanation>Introduce ambiguity by not specifying the exact admissions cycles</transformed-explanation>  
+<transformed-question>How does Stanford 's test policy impact undergraduate admissions, and what changes are expected for the Class of 2030?</transformed-question>  
+<transformed-answer>During the 2023-2024 and 2024-2025 admissions cycles, Stanford 's test-optional policy allows students to apply without standardized test scores, utilizing a holistic review process [Clue 7, 8]. Starting with the Class of 2030, submitting standardized test scores will be required again [Clue 6].</transformed-answer>
+
+3. <transformed-action>Perspective Shift</transformed-action>
+<transformed-explanation>Pose the question from the perspective of an admissions officer</transformed-explanation>  
+<transformed-question>As an admissions officer, how does Stanford 's test policy impact undergraduate admissions, and what changes are expected for the Class of 2030?</transformed-question>  
+<transformed-answer>As an admissions officer, Stanford 's test-optional policy for the 2023-2024 and 2024-2025 academic years allows students to apply without standardized test scores, utilizing a holistic review process [Clue 7, 8]. It is anticipated that starting with the Class of 2030, submitting standardized test scores will be required again [Clue 6].</transformed-answer>
+
+4. <transformed-action>Condition Addition</transformed-action>
+<transformed-explanation>Add specific conditions related to the policy, such as assuming the market environment remains unchanged</transformed-explanation>  
+<transformed-question>Assuming the market environment remains unchanged, as an admissions officer, how does Stanford 's test policy impact undergraduate admissions, and what changes are expected for the Class of 2030?</transformed-question>  
+<transformed-answer>Assuming the market environment remains unchanged, as an admissions officer, Stanford 's test-optional policy for the 2023-2024 and 2024-2025 academic years allows students to apply without standardized test scores, utilizing a holistic review process [Clue 7, 8]. Starting with the Class of 2030, submitting standardized test scores will be required again [Clue 6].</transformed-answer>
+++++++
+------
+Follow the format provided in the example strictly:
+Rephrased Question:
+1. <transformed-action>Here is the name of the Transformation</transformed-action>
+<transformed-explanation>Here is the explanation of the Transformation</transformed-explanation> 
+<transformed-question>Here is the result of the Transformation</transformed-question>
+<transformed-answer>Here is the answer of transformed question</transformed-answer>
+2. ...
+
+When rephrasing question, do not use any pronouns. Avoid pronouns, including but not limited to I, you, he/she/it, we, you (plural), they/them, this, that, these, those, who, each, everything, all, some, any, whoever, or certain.
+
+1. The core requirement is that, after transformation, the clues needed to answer the question and the final answer itself must remain unchanged.
+2. Additionally, the key information in the question must not be lost.
+3. The next transformation must be based on the previous transformation. For example, transformation 4 is based on the transformation result "As an admissions officer, how does Stanford 's test policy impact undergraduate admissions, and what changes are expected for the Class of 2030?".
+4. You may perform a maximum of 4 transformations.
+5. Once a transformation is made, you cannot revert it.
+6. Your transformed answer should include references like [Clue 1], if multiple clues are used, format the references as [Clue xx, xx, ...], that is separated numbers starting with "Clue" within square brackets indicate citations from various clues. For more than three consecutive citations, use a format like [Clue xx, xx1-xx2, xx], where xx1-xx2 indicates a continuous range of citations from xx1 to xx2.
+7. The core requirement is that, your transformations of the question should be equivalent. For instance, "Apple Inc" and "the company currently led by Cook" are equivalent, whereas "the institution of higher learning in Palo Alto" and "Stanford" are not equivalent, because "the institution of higher learning in Palo Alto" includes not only "Stanford University" but also "Palo Alto University".
+------
+
+[[CONTEXT]]
+
+++++++
+Transformations:

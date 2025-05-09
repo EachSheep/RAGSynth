@@ -1,0 +1,6 @@
+faiss-gpu==1.8.0
+flask
+sqlalchemy
+pandas
+numpy
+scipy

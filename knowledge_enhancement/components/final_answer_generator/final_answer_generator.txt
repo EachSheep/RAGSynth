@@ -1,0 +1,55 @@
+I will provide you with several text passages, each wrapped in <doc>xxx</doc>. At the end of each sentence in the paragraphs, there is a symbol like [Sen xx], representing the identifier for that sentence. Please note that this identifier is at the end of the sentence.
+
+Then I will give you a question and an answer related to this question. The answer contains references to relevant sentences in the paragraph.
+
+Your task is to help me determine whether the references in the answer to the relevant sentences in the paragraph are correct. If they are incorrect, please help me generate a new answer with modified references in the same format (do not change the content of the answer, just modify the references).
+
+You need to generate two versions of the new answer:
+1. Short Answer: The necessary references are the most concise references directly answering the question, i.e., the part directly answering the question.
+2. Long Answer: The necessary references include not only the most concise references directly answering the question but also the parts that align with the question text itself.
+
+------
+For example, here are two paragraphs of text:
+1. <doc>
+  <doc-name>docs.cyotek.com.filter_cyowcopy_current_querystringsinfilenames.html.md_chunk_0</doc-name>
+  <detailed-desc># Using Query String Parameters in Local Filenames [Sen 1] When WebCopy downloads a remote file, it uses the path portion of the URL to generate the local file name [Sen 2]. However, if a site makes heavy use of query string parameters for URLs, you may wish to incorporate these parameters into the generated file names [Sen 3]. ## Enabling the Use of Query String Parameters for File Name Generation [Sen 4] 1 [Sen 5]. From the **Project Properties** dialogue, select the **Local Files** category [Sen 6]. 2 [Sen 7]. Check the **Use query string in local file names** option [Sen 8].</detailed-desc>
+</doc>
+2. <doc>
+  <doc-name>docs.cyotek.com.filter_cyowcopy_current_updatinglocaltimestamps.html.md_chunk_0</doc-name>
+  <detailed-desc># Updating Local Time Stamps [Sen 1] By default, when WebCopy downloads a file, it will be given the current date and time [Sen 2]. However, when creating an archive of a given site, it may be more preferable to have the local timestamps match the time they were last modified (as reported by the remote server), if available [Sen 3]. If no last modified timestamp is available for a file, the current date and time will continue to be used [Sen 4]. ### Enabling the Updating of Local Time Stamps [Sen 5] 1 [Sen 6]. From the **Project Properties** dialogue, select the **Local Files** category [Sen 7]. 2 [Sen 8]. Check the **Update local timestamps** option [Sen 9].</detailed-desc>
+</doc>
+
+Question: What settings can users modify within the Local Files category of the Project Properties dialogue?
+Answer: Users can modify settings to update local timestamps and enable query string parameters in local file names within the Local Files category of the Project Properties dialogue [Doc docs.cyotek.com.filter_cyowcopy_current_querystringsinfilenames.html.md_chunk_0, Sen 6][Doc docs.cyotek.com.filter_cyowcopy_current_updatinglocaltimestamps.html.md_chunk_0, Sen 7].
+
+<answer-short>
+  <reason>The statement "[Doc docs.cyotek.com.filter_cyowcopy_current_querystringsinfilenames.html.md_chunk_0, Sen 6]" represents "From the **Project Properties** dialogue, select the **Local Files** category," but it is not the direct answer to the question. The direct answer should be [Sen 4], which is "## Enabling the Use of Query String Parameters for File Name Generation." Additionally, "[Doc docs.cyotek.com.filter_cyowcopy_current_querystringsinfilenames.html.md_chunk_0, Sen 6]" represents "1," which is merely a number and not the direct answer. The direct answer to the question is [Sen 5], which is "### Enabling the Updating of Local Time Stamps."</reason>
+  <answer>Users can modify settings to update local timestamps and enable query string parameters in local file names within the Local Files category of the Project Properties dialogue [Doc docs.cyotek.com.filter_cyowcopy_current_querystringsinfilenames.html.md_chunk_0, Sen 4][Doc docs.cyotek.com.filter_cyowcopy_current_updatinglocaltimestamps.html.md_chunk_0, Sen 5].</answer>
+</answer-short>
+
+<answer-long>
+  <reason>In addition to the short answers [Doc docs.cyotek.com.filter_cyowcopy_current_querystringsinfilenames.html.md_chunk_0, Sen 4] and [Doc docs.cyotek.com.filter_cyowcopy_current_updatinglocaltimestamps.html.md_chunk_0, Sen 5], other relevant sentences from the question text include [Doc docs.cyotek.com.filter_cyowcopy_current_querystringsinfilenames.html.md_chunk_0, Sen 6, 8] and [Doc docs.cyotek.com.filter_cyowcopy_current_updatinglocaltimestamps.html.md_chunk_0, Sen 7, 9]. Because these texts are directly related to the meaning expressed in the question.</reason>
+  <answer>Users can modify settings to update local timestamps and enable query string parameters in local file names within the Local Files category of the Project Properties dialogue [Doc docs.cyotek.com.filter_cyowcopy_current_querystringsinfilenames.html.md_chunk_0, Sen 4,6,8][Doc docs.cyotek.com.filter_cyowcopy_current_updatinglocaltimestamps.html.md_chunk_0, Sen 5,7,9].</answer>
+</answer-long>
+
+------
+Follow the format provided in the example strictly:
+<answer-short>
+  <reason>This is the reason for short answer</reason>
+  <answer>This is the answer for short answer</answer>
+</answer-short>
+
+<answer-long>
+  <reason>This is the reason for long answer</reason>
+  <answer>This is the answer for long answer</answer>
+</answer-long>
+------
+
+Giveing paragraphs:
+[[CONTEXT]]
+
+Question: [[QUESTION]]
+Answer: [[ANSWER]]
+
+Begin!
+------

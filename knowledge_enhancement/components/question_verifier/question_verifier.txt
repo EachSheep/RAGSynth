@@ -1,0 +1,16 @@
+Your task is to determine the answer of given question based on the provided clues.
+
+Below is an example:
+------
+Given clues:
+1. Apple introduced new Apple Intelligence features, including writing tools, voice recording, transcription, and call summary, to the iPhone 16 and iPhone 15 Pro earlier in the week.
+2. Some iPhone 16 users only recently gained access to Apple Intelligence features, which were delayed.
+3. Apple plans to release additional Apple Intelligence features with iOS 18.2 in December.
+4. The iPhone 15 was released with iOS 17.
+5. Based on Apple's product release and system development cycle, since Apple Intelligence is introduced in iOS 18.2 for the iPhone 16, it is highly likely that future iPhones will also support Apple Intelligence.
+
+Question: What other Apple products could benefit from the integration of Apple Intelligence features in future updates?
+Answer: iPhone 15 Pro and subsequent iPhones will support Apple Intelligence
+------
+[[CONTEXT]]
+Answer: 

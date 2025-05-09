@@ -1,0 +1,49 @@
+------
+Below is an example:
+Text:
+The rise in iPhone sales directly boosted Apple's overall revenue by 6% year-over-year, reaching $94.9 billion, slightly above analysts' expectations, despite a 35% drop in profit compared to the same period last year [Sen 1]. Typically, sales growth drives an increase in total revenue, while a decline in profit suggests margin pressure or rising costs [Sen 2]. During Thursday’s earnings call, Tim Cook noted that the Apple Intelligence update has been well-received by consumers [Sen 3]. “The adoption rate of (iOS) 18.1 is double that of (iOS) 17.1,” Cook stated, highlighting the strong demand for the update [Sen 4]. Higher adoption rates often reflect strong market interest in product iterations, potentially spurring further consumer activity [Sen 5].
+Following the earnings release, Apple shares (AAPL) dropped about 1% in after-hours trading, reflecting investors’ short-term caution post-earnings [Sen 6]. Earlier in the week, Apple had introduced its first batch of Apple Intelligence features to the iPhone 16 and iPhone 15 Pro, including writing tools, voice recording, transcription, and call summary features [Sen 7]. Typically, new features aim to enhance user experience and stimulate market demand, while delays in feature rollouts can dampen early buyer enthusiasm [Sen 8]. For example, users who purchased the iPhone 16 in its first month only recently gained access to these AI features, impacting the product’s initial appeal [Sen 9].
+
+Apple’s phased feature rollout strategy may reduce the urgency for some consumers to upgrade [Sen 10]. However, more Apple Intelligence features are expected with the December release of iOS 18.2, which may lessen the immediate pressure for Apple fans to upgrade to the iPhone 16, potentially impacting early sales performance [Sen 11].
+Ahead of Thursday’s earnings release, Wall Street investors were closely watching the initial market performance of the iPhone 16 and the company’s guidance for fourth-quarter sales [Sen 12]. Typically, investors focus on device sales performance and forward guidance when new products are launched, while news of profit declines often triggers short-term stock price fluctuations [Sen 13].
+++++++
+Objective Facts:
+1. <detailed-desc>Apple's revenue increased by 6% year-over-year, reaching $94.9 billion.</detailed-desc>
+<sentences-used>[Sen 1]</sentences-used>
+2. <detailed-desc>Apple's profit dropped by 35% compared to the same period last year.</detailed-desc>
+<sentences-used>[Sen 1]</sentences-used>
+3. <detailed-desc>Apple's revenue slightly exceeded analysts' expectations.</detailed-desc>
+<sentences-used>[Sen 1]</sentences-used>
+4. <detailed-desc>Tim Cook stated that the Apple Intelligence update has been well-received by consumers.</detailed-desc>
+<sentences-used>[Sen 3]</sentences-used>
+5. <detailed-desc>The adoption rate of iOS 18.1 is double that of iOS 17.1, according to Tim Cook.</detailed-desc>
+<sentences-used>[Sen 4]</sentences-used>
+6. <detailed-desc>Following the earnings release, Apple shares (AAPL) dropped by about 1% in after-hours trading.</detailed-desc>
+<sentences-used>[Sen 6]</sentences-used>
+7. <detailed-desc>Apple introduced new Apple Intelligence features, including writing tools, voice recording, transcription, and call summary, to the iPhone 16 and iPhone 15 Pro earlier in the week.</detailed-desc>
+<sentences-used>[Sen 7]</sentences-used>
+8. <detailed-desc>Some iPhone 16 users only recently gained access to Apple Intelligence features, which were delayed.</detailed-desc>
+<sentences-used>[Sen 9]</sentences-used>
+9. <detailed-desc>Apple plans to release additional Apple Intelligence features with iOS 18.2 in December.</detailed-desc>
+<sentences-used>[Sen 11]</sentences-used>
+10. <detailed-desc>Ahead of Apple's earnings release, Wall Street investors monitored the initial performance of the iPhone 16 and Apple's fourth-quarter sales guidance.</detailed-desc>
+<sentences-used>[Sen 12]</sentences-used>
+------
+Follow the format provided in the example strictly:
+
+Objective Facts:
+1. <detailed-desc>detailed description</detailed-desc>
+<sentences-used>[Sen xx] if only one Sen is used to generate the Fact, else use [Sen xx, xx, ...], that is multiple, separated numbers starting with "Sen" within square brackets indicate citations from various Sen sources.</sentences-used>
+2. ...
+
+Task Description: You are given some text. The task is to: 
+1) Write all the objective facts, data, evidence, statistics, observations, personal opinions, and any other verifiable information mentioned in the text.
+2) Remove discussions on widely recognized universal values and common knowledge.
+3) If <sentences-used> contains multiple citations from Sen, format the output as follows: [Sen xx, xx, ...]. This format uses square brackets to list the citation numbers beginning with "Sen". For more than three consecutive citations, use a format like [Sen xx, xx1-xx2, xx], where xx1-xx2 indicates a continuous range of citations from xx1 to xx2.
+
+The detailed description should include the subject, object, content, and, when necessary, additional information such as time, location, and other details to ensure completeness.
+------
+Below is the one you need to translate:
+Text:
+[[CONTEXT]]
+++++++

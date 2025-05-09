@@ -1,0 +1,289 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generation Result Evaluation</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+        }
+        .document { 
+            border: 1px solid #ccc; 
+            padding: 10px; 
+            margin-bottom: 20px; 
+        }
+        .highlight { background-color: yellow; }
+        .controls { 
+            margin-top: 20px; 
+        }
+        textarea { 
+            width: 100%; 
+        }
+        input[type="number"] { 
+            width: 100px; 
+        }
+        label { 
+            display: block; 
+            margin-top: 10px; 
+        }
+        button { 
+            margin-right: 10px; 
+            padding: 10px 20px; /* 增加按钮的内边距 */
+            font-size: 16px;    /* 增大字体 */
+            cursor: pointer;    /* 鼠标悬停时显示为手型 */
+        }
+        /* 特别放大 Next 按钮 */
+        #next-button { 
+            padding: 15px 30px; 
+            font-size: 18px; 
+            background-color: #4CAF50; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+        }
+        /* 放大 Previous 按钮 */
+        #previous-button { 
+            padding: 15px 30px; 
+            font-size: 18px; 
+            background-color: #f1f1f1; 
+            color: black; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+        }
+        /* 消息提示样式 */
+        .message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 5px;
+            color: white;
+            display: none;
+            z-index: 1000;
+        }
+        .message.success {
+            background-color: #4CAF50;
+        }
+        .message.error {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generation Result Evaluation</h1>
+
+    <div id="task-container">
+        <!-- Task details will be displayed here -->
+    </div>
+
+    <div class="controls">
+        <button id="previous-button" disabled>Previous</button>
+        <button id="next-button">Next</button>
+    </div>
+
+    <!-- 消息提示容器 -->
+    <div id="message" class="message"></div>
+
+    <script>
+        let currentTask = null;
+        let initialCorrectedCorpusid2senids = '';
+        let initialCorrectedScoreReason = '';
+        let initialCorrectedScore = '';
+
+        async function fetchTask() {
+            const response = await fetch('/api/get_task');
+            const data = await response.json();
+            if (data.status === 'no_more_tasks') {
+                document.getElementById('task-container').innerHTML = '<p>All tasks have been completed.</p>';
+                document.getElementById('next-button').disabled = true;
+                return;
+            }
+            currentTask = data;
+            displayTask(data);
+        }
+
+        function escapeHtml(text) {
+            var map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+
+        function highlightSentencesWithPos(text, senids) {
+            // Sort the sentence IDs to ensure they are processed in order
+            const sortedSenids = senids.map(Number).sort((a, b) => a - b);
+
+            // Escape HTML to prevent XSS attacks
+            function escapeHtml(text) {
+                return text.replace(/[&<>"']/g, function (match) {
+                    return ({
+                        '&': '&amp;',
+                        '<': '&lt;',
+                        '>': '&gt;',
+                        '"': '&quot;',
+                        "'": '&#039;'
+                    })[match];
+                });
+            }
+
+            // Create a regular expression to match [Sen xx] pattern
+            const regex = /\[Sen (\d+)\]/g;
+            let match;
+            let highlightedText = '';
+            let lastIndex = 0;
+
+            // Iterate over the matches of [Sen xx] in the text
+            while ((match = regex.exec(text)) !== null) {
+                const senNumber = parseInt(match[1], 10);
+
+                // Append text before the match
+                highlightedText += escapeHtml(text.substring(lastIndex, match.index));
+
+                // Highlight the sentence ID if it is in the list
+                if (sortedSenids.includes(senNumber)) {
+                    highlightedText += `<span class="highlight">${escapeHtml(match[0])}</span>`;
+                } else {
+                    highlightedText += escapeHtml(match[0]);
+                }
+
+                // Update last index to the end of the current match
+                lastIndex = match.index + match[0].length;
+            }
+
+            // Append any remaining text after the last match
+            highlightedText += escapeHtml(text.substring(lastIndex));
+
+            return highlightedText;
+        }
+
+
+        function displayTask(task) {
+            const container = document.getElementById('task-container');
+            container.innerHTML = '';
+
+            // Display document content
+            for (let corpus_id in task.needed_corpusid2corpus) {
+                const corpus_text = task.needed_corpusid2corpus[corpus_id];
+                const senids = task.needed_corpusid2senids[corpus_id];
+                const highlighted_text = highlightSentencesWithPos(corpus_text, senids);
+                const corpus_div = document.createElement('div');
+                corpus_div.className = 'document';
+                corpus_div.innerHTML = `<h3>Document ID: ${corpus_id}</h3><p>${highlighted_text}</p>`;
+                container.appendChild(corpus_div);
+            }
+
+            // Display other fields
+            const fields = [
+                {label: 'Original Question', value: task.original_question},
+                {label: 'Rephrased Question', value: task.rephrased_question_str},
+                {label: 'Standard Answer', value: task.standard_answer}
+            ];
+
+            fields.forEach(field => {
+                const p = document.createElement('p');
+                p.innerHTML = `<strong>${field.label}:</strong> ${field.value}`;
+                container.appendChild(p);
+            });
+
+            // Editable fields
+            // 1. Corrected Corpus ID to Sen IDs
+            const correctedSenIdsLabel = document.createElement('label');
+            correctedSenIdsLabel.textContent = 'Corrected Corpus ID to Sen IDs (JSON format):';
+            const correctedSenIdsInput = document.createElement('textarea');
+            correctedSenIdsInput.id = 'corrected_corpusid2senids';
+            correctedSenIdsInput.rows = 4;
+            correctedSenIdsInput.cols = 50;
+            correctedSenIdsInput.value = task.corrected_corpusid2senids ? JSON.stringify(task.corrected_corpusid2senids, null, 2) : JSON.stringify(task.needed_corpusid2senids, null, 2);
+            initialCorrectedCorpusid2senids = correctedSenIdsInput.value;
+            container.appendChild(correctedSenIdsLabel);
+            container.appendChild(correctedSenIdsInput);
+        }
+
+        async function nextTask() {
+            if (!currentTask) {
+                showMessage('No task to update.', 'error');
+                return;
+            }
+
+            const output_path = currentTask.task_id[0];
+            const task_index = currentTask.task_id[1];
+
+            let corrected_corpusid2senids = document.getElementById('corrected_corpusid2senids').value;
+
+            // Check if fields have been modified
+            const fieldsModified = (
+                corrected_corpusid2senids !== initialCorrectedCorpusid2senids
+            );
+
+            const payload = {
+                'task_id': currentTask.task_id,
+                'modified': fieldsModified ? 1 : 0,
+            };
+
+            if (fieldsModified) {
+                payload['corrected_corpusid2senids'] = corrected_corpusid2senids;
+            }
+
+            const response = await fetch('/api/update_task', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const result = await response.json();
+            if (response.ok) {
+                if (!fieldsModified) {
+                    showMessage('加载下一个任务。', 'success');
+                } else {
+                    showMessage('保存成功！加载下一个任务。', 'success');
+                }
+                fetchTask();
+            } else {
+                showMessage(`保存失败: ${result.reason}`, 'error');
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                nextTask(); // next task
+            }
+        }
+
+        document.getElementById('next-button').addEventListener('click', () => {
+            nextTask(); // next task
+        });
+
+        // 如果需要也可以给 Previous 按钮添加事件
+        document.getElementById('previous-button').addEventListener('click', () => {
+            // 实现 Previous 按钮的功能
+            // 这里暂不实现，根据具体需求添加
+        });
+
+        // Attach keypress event to the entire document for Enter key
+        document.addEventListener('keypress', handleKeyPress);
+
+        // 显示消息提示函数
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = message;
+            messageDiv.className = `message ${type}`;
+            messageDiv.style.display = 'block';
+
+            // 3秒后隐藏消息
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 3000);
+        }
+
+        // 初始化加载第一个任务
+        fetchTask();
+    </script>
+</body>
+</html>

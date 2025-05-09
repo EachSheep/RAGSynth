@@ -1,0 +1,105 @@
+
+-Goal-
+Given a text document that is potentially relevant to this activity and a list of entity types, identify all entities of those types from the text and all relationships among the identified entities.
+Please note that the entities and relationships you extract should meet the following requirements.
+1) Please extract entities and relationships from the following content, including objective facts, data, evidence, statistics, observations, personal opinions, and any other verifiable information.
+2) Remove discussions on widely recognized universal values and common knowledge.
+
+-Steps-
+1. Identify all entities. For each identified entity, extract the following information:
+- entity_name: Name of the entity. The first letter of each non-preposition in the entity name should be capitalized.
+- entity_description: Comprehensive description of the entity's attributes and activities
+Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_description>)
+ 
+2. From the entities identified in step 1, identify all pairs of (source_entity_name, target_entity_name) that are *clearly related* to each other.
+For each pair of related entities, extract the following information:
+- source_entity_name: name of the source entity, as identified in step 1
+- target_entity_name: name of the target entity, as identified in step 1
+- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
+- sentences_used: references to original sentences in the text used to determine this relationship, formatted as [Sen XX]. If sentences used includes multiple Sen, format the output as follows: [Sen xx, xx, ...], that is separated numbers starting with "Sen" within square brackets indicate citations from various Sen sources. For more than three consecutive citations, use a format like [Sen xx, xx1-xx2, xx], where xx1-xx2 indicates a continuous range of citations from xx1 to xx2.
+ Format each relationship as ("relationship"{tuple_delimiter}<source_entity_name>{tuple_delimiter}<target_entity_name>{tuple_delimiter}<relationship_description>{tuple_delimiter}<sentences_used>)
+ 
+3. Return output in English as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
+ 
+4. When finished, output {completion_delimiter}
+ 
+######################
+-Example-
+######################
+Text:
+The rise in iPhone sales directly boosted Apple's overall revenue by 6% year-over-year, reaching $94.9 billion, slightly above analysts' expectations, despite a 35% drop in profit compared to the same period last year [Sen 1]. Typically, sales growth drives an increase in total revenue, while a decline in profit suggests margin pressure or rising costs [Sen 2]. During Thursday’s earnings call, Tim Cook noted that the Apple Intelligence update has been well-received by consumers [Sen 3]. “The adoption rate of (iOS) 18.1 is double that of (iOS) 17.1,” Cook stated, highlighting the strong demand for the update [Sen 4]. Higher adoption rates often reflect strong market interest in product iterations, potentially spurring further consumer activity [Sen 5].
+Following the earnings release, Apple shares (AAPL) dropped about 1% in after-hours trading, reflecting investors’ short-term caution post-earnings [Sen 6]. Earlier in the week, Apple had introduced its first batch of Apple Intelligence features to the iPhone 16 and iPhone 15 Pro, including writing tools, voice recording, transcription, and call summary features [Sen 7]. Typically, new features aim to enhance user experience and stimulate market demand, while delays in feature rollouts can dampen early buyer enthusiasm [Sen 8]. For example, users who purchased the iPhone 16 in its first month only recently gained access to these AI features, impacting the product’s initial appeal [Sen 9].
+
+Apple’s phased feature rollout strategy may reduce the urgency for some consumers to upgrade [Sen 10]. However, more Apple Intelligence features are expected with the December release of iOS 18.2, which may lessen the immediate pressure for Apple fans to upgrade to the iPhone 16, potentially impacting early sales performance [Sen 11].
+Ahead of Thursday’s earnings release, Wall Street investors were closely watching the initial market performance of the iPhone 16 and the company’s guidance for fourth-quarter sales [Sen 12]. Typically, investors focus on device sales performance and forward guidance when new products are launched, while news of profit declines often triggers short-term stock price fluctuations [Sen 13].
+
+######################
+Output:
+("entity"{tuple_delimiter}iPhone Sales{tuple_delimiter}iPhone Sales refers to the increase in sales of Apple's iPhone, which contributed to a 6% revenue growth year-over-year)
+{record_delimiter}
+("entity"{tuple_delimiter}Apple{tuple_delimiter}Apple is a technology company that experienced a 6% increase in revenue year-over-year, totaling $94.9 billion, despite a 35% drop in profit)
+{record_delimiter}
+("entity"{tuple_delimiter}Tim Cook{tuple_delimiter}Tim Cook is the CEO of Apple, who highlighted strong consumer reception of the Apple Intelligence update and its high adoption rates)
+{record_delimiter}
+("entity"{tuple_delimiter}Apple Intelligence{tuple_delimiter}Apple Intelligence is a suite of features including writing tools, voice recording, transcription, and call summary that were recently introduced to iPhones)
+{record_delimiter}
+("entity"{tuple_delimiter}iOS 18.1{tuple_delimiter}iOS 18.1 is the latest operating system update from Apple, which has seen an adoption rate double that of iOS 17.1)
+{record_delimiter}
+("entity"{tuple_delimiter}AAPL{tuple_delimiter}AAPL is Apple's stock ticker symbol, which dropped about 1% in after-hours trading following the earnings report)
+{record_delimiter}
+("entity"{tuple_delimiter}iPhone 16{tuple_delimiter}iPhone 16 is a smartphone model launched by Apple, featuring Apple Intelligence capabilities)
+{record_delimiter}
+("entity"{tuple_delimiter}iPhone 15 Pro{tuple_delimiter}iPhone 15 Pro is a premium smartphone model from Apple that includes Apple Intelligence features)
+{record_delimiter}
+("entity"{tuple_delimiter}iOS 18.2{tuple_delimiter}iOS 18.2 is an upcoming software update expected in December, which will include additional Apple Intelligence features)
+{record_delimiter}
+("entity"{tuple_delimiter}Wall Street Investors{tuple_delimiter}Wall Street Investors are financial market participants who closely monitored Apple's earnings and the market performance of the iPhone 16)
+{record_delimiter}
+
+("relationship"{tuple_delimiter}iPhone Sales{tuple_delimiter}Apple{tuple_delimiter}The increase in iPhone sales contributed significantly to Apple's 6% revenue growth{tuple_delimiter}[Sen 1])
+{record_delimiter}
+("relationship"{tuple_delimiter}Tim Cook{tuple_delimiter}Apple Intelligence{tuple_delimiter}Tim Cook noted the positive consumer reception and high adoption rates of the Apple Intelligence update{tuple_delimiter}[Sen 3, 4])
+{record_delimiter}
+("relationship"{tuple_delimiter}Apple Intelligence{tuple_delimiter}iPhone 16{tuple_delimiter}The introduction of Apple Intelligence features enhanced the functionality and appeal of the iPhone 16{tuple_delimiter}[Sen 7, 9])
+{record_delimiter}
+("relationship"{tuple_delimiter}Apple Intelligence{tuple_delimiter}iPhone 15 Pro{tuple_delimiter}Apple Intelligence features were also added to the iPhone 15 Pro, enhancing its capabilities{tuple_delimiter}[Sen 7])
+{record_delimiter}
+("relationship"{tuple_delimiter}iOS 18.1{tuple_delimiter}Apple Intelligence{tuple_delimiter}The iOS 18.1 update, which includes Apple Intelligence features, saw high adoption rates{tuple_delimiter}[Sen 4])
+{record_delimiter}
+("relationship"{tuple_delimiter}AAPL{tuple_delimiter}Apple{tuple_delimiter}Following Apple's earnings report, its stock (AAPL) declined by 1% in after-hours trading{tuple_delimiter}[Sen 6])
+{record_delimiter}
+("relationship"{tuple_delimiter}iOS 18.2{tuple_delimiter}Apple Intelligence{tuple_delimiter}The upcoming iOS 18.2 update will introduce additional Apple Intelligence features{tuple_delimiter}[Sen 11])
+{record_delimiter}
+("relationship"{tuple_delimiter}Wall Street Investors{tuple_delimiter}iPhone 16{tuple_delimiter}Wall Street investors monitored the sales performance of the iPhone 16 closely in relation to Apple's earnings{tuple_delimiter}[Sen 12])
+{record_delimiter}
+("relationship"{tuple_delimiter}iPhone 16{tuple_delimiter}iOS 18.2{tuple_delimiter}The release of iOS 18.2 is expected to influence the sales and attractiveness of the iPhone 16{tuple_delimiter}[Sen 11])
+{record_delimiter}
+
+{completion_delimiter}
+######################
+-Steps-
+1. Identify all entities. For each identified entity, extract the following information:
+- entity_name: Name of the entity. The first letter of each non-preposition in the entity name should be capitalized.
+- entity_description: Comprehensive description of the entity's attributes and activities
+Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_description>)
+ 
+2. From the entities identified in step 1, identify all pairs of (source_entity_name, target_entity_name) that are *clearly related* to each other.
+For each pair of related entities, extract the following information:
+- source_entity_name: name of the source entity, as identified in step 1
+- target_entity_name: name of the target entity, as identified in step 1
+- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
+- sentences_used: references to original sentences in the text used to determine this relationship, formatted as [Sen XX]. If sentences used includes multiple Sen, format the output as follows: [Sen xx, xx, ...], that is separated numbers starting with "Sen" within square brackets indicate citations from various Sen sources. For more than three consecutive citations, use a format like [Sen xx, xx1-xx2, xx], where xx1-xx2 indicates a continuous range of citations from xx1 to xx2.
+ Format each relationship as ("relationship"{tuple_delimiter}<source_entity_name>{tuple_delimiter}<target_entity_name>{tuple_delimiter}<relationship_description>{tuple_delimiter}<sentences_used>)
+ 
+3. Return output in English as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
+ 
+4. When finished, output {completion_delimiter}
+
+You can extract up to 20 entities and 20 relationships.
+
+-Real Data-
+######################
+Text: [[CONTEXT]]
+######################
+You can extract up to 20 entities and 20 relationships.
+Output:

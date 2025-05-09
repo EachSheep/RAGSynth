@@ -1,0 +1,153 @@
+You should rigorously employ methods to rephrase questions, ensuring that transformations can be either equivalent (maintaining the original meaning) or partial (altering the meaning so that the original question becomes a sub-question of the new one). The core requirement is that, after transformation:
+
+- For Equivalent Transformations: These transformations rephrase the question without altering its inherent meaning. The clues needed to answer the question and the final answer must remain unchanged.
+- For Partial Transformations: These transformations alter the original question so that it becomes a sub-question of the new question. After transformation, the original clues should only partially address the new question.
+
+Here are the methods for each type of transformation:
+
+### Equivalent Transformations
+
+- Near-synonym Replacement:
+  - Explanation: Replace certain words in the question with their synonyms or equivalent expressions without changing the fundamental meaning.
+  - Example:
+    - *Original Question*: How much less was Cook's company's revenue in 2023 compared to 2024?
+    - *After Near-synonym Replacement*: How much less was Cook's company's revenue in the Year of the Rabbit compared to the Year of the Dragon?
+
+- Semantic Ambiguity:
+  - Explanation: Introduce ambiguity in the question without changing the essential meaning.
+  - Example:
+    - *Original Question*: How much less was Cook's company's revenue in the Year of the Rabbit compared to the Year of the Dragon?
+    - *After Semantic Ambiguity*: How does Cook's company's revenue in the Year of the Rabbit compare to the Year of the Dragon?
+
+- Perspective Shift:
+  - Explanation: Pose the question from a different perspective or role, such as from an investor, consumer, or competitor, making the question more complex.
+  - Example:
+    - *Original Question*: How much has Cook's company's revenue increased compared to last year?
+    - *After Perspective Shift*: As an investor, how would you evaluate the revenue growth of Cook's company this year?
+
+- Conditional Addition:
+  - Explanation: Add conditions to the question, requiring it to be answered under specific circumstances, thus increasing the reasoning steps.
+  - Example:
+    - *Original Question*: How much has Cook's company's revenue increased compared to last year?
+    - *After Conditional Addition*: How much has Cook's company's revenue increased compared to last year if inflation is not considered?
+
+- Detail Expansion:
+  - Explanation: Introduce more details or background information into the question, making it more specific and complex, but the answer is still based on the original facts.
+  - Example:
+    - *Original Question*: How much has Cook's company's revenue increased compared to last year?
+    - *After Detail Expansion*: How much has Cook's company's revenue increased compared to last year after launching the new Apple Intelligence feature?
+
+### Partial Transformations
+
+- Temporal Expansion:
+  - Explanation: Extend or narrow the time frame to address a broader or more specific period, while ensuring the answer remains based on the original facts.
+  - Example:
+    - *Original Question*: By how much did the revenue of Cook's company increase from 2023 to 2024?
+    - *After Temporal Expansion*: What was the annual revenue growth rate of Cook's company from 2022 to 2024?
+
+- Comparison Addition:
+  - Explanation: Introduce a comparison with other entities or time points in the question.
+  - Example:
+    - *Original Question*: By how much did the revenue of Cook's company increase compared to last year?
+    - *After Comparison Addition*: By how much did the revenue of Cook's company increase compared to last year, and how did this growth compare to that of its competitors?
+
+- Metric Segmentation:
+  - Explanation: Break down the question into different metrics or dimensions, partially relying on the original facts.
+  - Example:
+    - *Original Question*: By how much did the revenue of Cook's company increase compared to last year?
+    - *After Metric Segmentation*: By how much did the revenue of Cook's company increase compared to last year, and how did revenue from phones and computers grow compared to last year?
+
+- Multi-step Question:
+  - Explanation: Break down a question into multiple steps or requirements, including parts that require reasoning or calculation.
+  - Example:
+    - *Original Question*: How much did the revenue of the company where Cook works increase compared to last year?
+    - *After Multi-step Question*: How much did the revenue of the company where Cook works increase compared to last year? What does this imply about its annual growth rate?
+
+- Prediction Requirement:
+  - Explanation: Require making a prediction about the future, with existing clues providing only partial basis.
+  - Example:
+    - *Original Question*: How much did the revenue of the company where Cook works increase compared to last year?
+    - *After Prediction Requirement*: Based on this year's revenue growth, what is the expected revenue of the company where Cook works for next year?
+
+- Explanation of Reasons:
+  - Explanation: Not only ask for the result but also require explaining the reasons behind the result.
+  - Example:
+    - *Original Question*: How much did the revenue of the company where Cook works increase compared to last year?
+    - *After Explanation of Reasons*: How much did the revenue of the company where Cook works increase compared to last year? What are the main reasons for this growth?
+
+------
+Below is an example:
+Given clues:
+1. <detailed-desc>Apple's revenue increased by 6% year-over-year, reaching $94.9 billion.</detailed-desc>
+2. <detailed-desc>Apple's profit dropped by 35% compared to the same period last year.</detailed-desc>
+3. <detailed-desc>Apple's revenue slightly exceeded analysts' expectations.</detailed-desc>
+4. <detailed-desc>Tim Cook stated that the Apple Intelligence update has been well-received by consumers.</detailed-desc>
+5. <detailed-desc>The adoption rate of iOS 18.1 is double that of iOS 17.1, according to Tim Cook.</detailed-desc>
+6. <detailed-desc>Following the earnings release, Apple shares (AAPL) dropped by about 1% in after-hours trading.</detailed-desc>
+7. <detailed-desc>Apple introduced new Apple Intelligence features, including writing tools, voice recording, transcription, and call summary, to the iPhone 16 and iPhone 15 Pro earlier in the week.</detailed-desc>
+8. <detailed-desc>Some iPhone 16 users only recently gained access to Apple Intelligence features, which were delayed.</detailed-desc>
+9. <detailed-desc>Apple plans to release additional Apple Intelligence features with iOS 18.2 in December.</detailed-desc>
+10. <detailed-desc>Ahead of Apple's earnings release, Wall Street investors monitored the initial performance of the iPhone 16 and Apple's fourth-quarter sales guidance.</detailed-desc>
+
+Original Question: How much has Apple's revenue increased compared to last year?
+Answer: Apple's revenue increased by 6% year-over-year, reaching $94.9 billion [Clue 1].
+
+++++++
+Transformations:
+
+1. <transformed-action>Equivalent Transformation: Near-synonym Replacement</transformed-action>
+<transformed-explanation>Replace "Apple's" with "the company led by Tim Cook"</transformed-explanation> 
+<transformed-question>How much has the company led by Tim Cook increased its revenue compared to last year?</transformed-question>
+<transformed-answer>The company led by Tim Cook is Apple, Apple's revenue increased by 6% year-over-year, reaching $94.9 billion [Clue 1].</transformed-answer>
+
+2. <transformed-action>Partial Transformation: Temporal Expansion</transformed-action>
+<transformed-explanation>Extend the time frame to inquire about revenue growth over multiple years.</transformed-explanation>
+<transformed-question>What has been the revenue growth of the company led by Tim Cook over the past three years compared to each preceding year?</transformed-question>
+<transformed-answer>The company led by Tim Cook is Apple, Apple's revenue increased by 6% year-over-year, reaching $94.9 billion [Clue 1]. I don't have information about the revenue growth in the previous two years, so a complete analysis over the past three years cannot be conducted based on the given clues.</transformed-answer>
+
+3. <transformed-action>Equivalent Transformation: Semantic Ambiguity</transformed-action>
+<transformed-explanation>Introduce ambiguity by generalizing the time periods mentioned.</transformed-explanation>
+<transformed-question>How does the revenue growth of the company led by Tim Cook over recent years compared to preceding periods?</transformed-question>
+<transformed-answer>The company led by Tim Cook is Apple, Apple's revenue increased by 6% year-over-year, reaching $94.9 billion [Clue 1]. There is insufficient information to compare revenue growth across multiple years based on the given clues.</transformed-answer>
+
+4. <transformed-action>Partial Transformation: Comparison Addition</transformed-action>
+<transformed-explanation>Introduce a comparison with the revenue growth of key competitors during the same period, while retaining the focus on multiple years.</transformed-explanation>
+<transformed-question>How does the revenue growth of the company led by Tim Cook over recent years compared to preceding periods, and how does this growth compare to that of its main competitors?</transformed-question>
+<transformed-answer>The company led by Tim Cook is Apple, Apple's revenue increased by 6% year-over-year, reaching $94.9 billion [Clue 1]. However, there is no information about the revenue growth about other years and any information about Apple's main competitors, so a comparison cannot be made based on the available clues.</transformed-answer>
+
+5. <transformed-action>Equivalent Transformation: Perspective Shift</transformed-action>
+<transformed-explanation>Pose the question from an investor's perspective, considering both Apple’s and its competitors' performance.</transformed-explanation>
+<transformed-question>As an investor, how would you assess the revenue growth of the company led by Tim Cook over recent years compared to preceding periods and in relation to its main competitors?</transformed-question>
+<transformed-answer>As an investor, the company led by Tim Cook is Apple, Apple's revenue increased by 6% year-over-year, reaching $94.9 billion [Clue 1]. There is no information about the revenue growth about other years of Apple's main competitors, so a comprehensive assessment cannot be made based on the available clues.</transformed-answer>
+
+6. <transformed-action>Partial Transformation: Metric Segmentation</transformed-action>
+<transformed-explanation>Break down the revenue growth by specific product categories while retaining the multi-year and comparison aspects.</transformed-explanation>
+<transformed-question>As an investor, how does the revenue growth of the company led by Tim Cook's hardware and services divisions over recent years compare to each preceding year and to its main competitors?</transformed-question>
+<transformed-answer>As an investor, the company led by Tim Cook's overall revenue increased by 6% year-over-year, reaching $94.9 billion [Clue 1]. Specific data on the other years of revenue growth, and revenue growth of the hardware and services divisions, as well as comparisons to main competitors, are not available based on the given clues.</transformed-answer>
+
+++++++
+------
+Follow the format provided in the example strictly:
+Rephrased Question:
+1. <transformed-action>Here is the name of the Transformation (Specify "Equivalent Transformation" or "Partial Transformation")</transformed-action>
+<transformed-explanation>Here is the explanation of the Transformation</transformed-explanation> 
+<transformed-question>Here is the result of the Transformation</transformed-question>
+<transformed-answer>Here is the answer to the transformed question. In your answer, you should clearly indicate which sentence relies on which specific clue. If a sentence does not have a corresponding clue, do not include any annotations.</transformed-answer>
+2. ...
+    
+When rephrasing questions, do not use any pronouns. Avoid pronouns, including but not limited to I, you, he/she/it, we, you (plural), they/them, this, that, these, those, who, each, everything, all, some, any, whoever, or certain.
+
+1. The core requirement is that, after transformation, equivalent transformations must preserve the original meaning, and partial transformations must alter the meaning so that the original question becomes a sub-question of the new one.
+2. Additionally, the key information in the question must not be lost.
+3. The next transformation must be based on the previous transformation.
+4. You may perform a maximum of 6 transformations.
+5. Once a transformation is made, you cannot revert it.
+6. Your transformed answer should include references like [Clue 1], if multiple clues are used, format the references as [Clue xx, xx, ...], that is separated numbers starting with "Clue" within square brackets indicate citations from various clues. For more than three consecutive citations, use a format like [Clue xx, xx1-xx2, xx], where xx1-xx2 indicates a continuous range of citations from xx1 to xx2.
+7. The core requirement is that, your transformations of the question should be equivalent or partial as specified. For equivalent transformations, the meaning remains unchanged. For partial transformations, the original question becomes a sub-question of the new one.
+8. Your transformed answer should reflect whether the transformation was equivalent or partial by appropriately addressing the new question while partially or fully relying on the existing clues.
+9. The next transformation must be based on the previous transformation.
+------
+[[CONTEXT]]
+
+++++++
+Transformations: 
