@@ -27,9 +27,9 @@ python src/tranverse.py --source_folder docs/www.drugs.com \
 python src/tranverse.py --source_folder docs/www.mayoclinic.org \
     --target_folder docs/www.mayoclinic.org.new \
     --base_url https://www.mayoclinic.org
-# 性质：Mayo Clinic 是一家著名的非营利性医疗机构，其网站提供由医生和医疗专家撰写和审核的医疗信息。Drugs.com 是一个商业性网站，专注于药物信息。
-# 重点：Mayo Clinic 主要提供广泛的医学信息、症状管理、治疗建议等，涵盖疾病、手术、生活方式等多个方面。Drugs.com 则专注于药物的副作用、相互作用、剂量等，帮助用户了解如何使用药物。
-# 信息来源：Mayo Clinic 的信息通常由其内部的医学专家提供，并基于其临床经验和研究。Drugs.com 的药物信息来自多种来源，包括FDA、制药公司以及用户反馈。
+# **Characteristics:** Mayo Clinic is a renowned non-profit medical institution that offers medical information written and reviewed by doctors and healthcare experts. Drugs.com is a commercial website focused on drug-related information.
+# **Focus:** Mayo Clinic provides comprehensive medical information, including symptom management and treatment advice, covering various aspects such as diseases, surgeries, and lifestyle. In contrast, Drugs.com specializes in drug side effects, interactions, and dosages, helping users understand how to use medications.
+# **Sources of Information:** Mayo Clinic's information is typically provided by its in-house medical experts, based on their clinical experience and research. Drugs.com's drug information is sourced from various entities, including the FDA, pharmaceutical companies, and user feedback.
 
 # python src/tranverse.py --source_folder docs/www.rxlist.com \
 #     --target_folder docs/www.rxlist.com.new \
