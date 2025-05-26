@@ -1,5 +1,6 @@
 # RAGSynth
 
+We will open-source the dataset and scripts after the review is finished.
 
 1. **wash_data_scripts**: This section illustrates some of the data cleaning processes we employed during data collection.
 2. **src**: This section differentiates between datasets, highlighting which datasets are used for evaluation and which serve as corpora.
